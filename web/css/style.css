@@ -1666,9 +1666,17 @@ li.left-br {
 }
 }
 span.new-offer {
-    font-size: 13px;
+    font-size: 8px;
     color: #ffffff;
     background: #11b719;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-left: 15px;
+}
+span.coming-soon {
+    font-size: 8px;
+    color: #ffffff;
+    background:#fb5b5bbf;
     padding: 4px 12px;
     border-radius: 2px;
     margin-left: 15px;
@@ -2893,7 +2901,6 @@ background:#11b719;
 Footer Copyright Style
 -----------------------------------------------*/
 .row.copyright{
-padding:1.4em 0 0 0;
 background:#111922;
 text-align:center;
 margin:0;
