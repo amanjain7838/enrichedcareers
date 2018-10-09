@@ -12,8 +12,8 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
       $user=new user();
-      $user->setName('sdadadhaq');
-      $user->setPassword('saqdadadh');
+      $user->setName('sdadadhaqa');
+      $user->setPassword('saqdadadha');
       $em=$this->getDoctrine()->getManager();
       $em->persist($user);
       $em->flush();
