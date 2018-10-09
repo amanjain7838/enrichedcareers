@@ -11,17 +11,17 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-      $user=new user();
-      $user->setName('sdadad');
-      $user->setPassword('sdadad');
-      $em=$this->getDoctrine()->getManager();
-      $em->persist($user);
-      $em->flush();
+      // $user=new user();
+      // $user->setName('sdadad');
+      // $user->setPassword('sdadad');
+      // $em=$this->getDoctrine()->getManager();
+      // $em->persist($user);
+      // $em->flush();
 
-        return $this->render('default/index.html.twig');
+      return $this->render('default/index.html.twig');
     }
     public function indexsAction(Request $request)
-    {echo "string";exit;
+    {
       // $user=new user();
       // $user->setName('sdadad');
       // $em=$this->getDoctrine()->getManager();

@@ -2762,12 +2762,6 @@ margin:0 auto;
 /* ==========================================================================
       Footer Part Style Settings
 ========================================================================== */
-.footer{
-background:#1c2733;
-padding:1.5em 0 0 0;
-z-index:-1;
-text-align:left;
-}
 footer .row.no-padding{
 margin:0px 10px;
 }
