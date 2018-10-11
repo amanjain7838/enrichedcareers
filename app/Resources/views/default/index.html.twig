@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Job Market{% endblock %}
+{% block title %}Job Market - Recruitment - Job Search - Employment - Job Vacancies  {% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="css/plugins.css">
 	<link href="css/style.css" rel="stylesheet">
@@ -100,15 +100,17 @@
 					<div class="all-features">
 
 						<div class="col-md-3 col-sm-6 small-padding">
-							<div class="job-feature">
-								<div class="feature-icon">
-									<i class="fa fa-desktop"></i>
+							<a href="{{ path('jobCategory', {'type': 'sss'}) }}">
+								<div class="job-feature">
+									<div class="feature-icon">
+										<i class="fa fa-desktop"></i>
+									</div>
+									<div class="feature-caption">
+										<h5>Off Campus Drive</h5><br>
+										<span class="job-num">5 Position</span>
+									</div>
 								</div>
-								<div class="feature-caption">
-									<h5>Off Campus Drive</h5><br>
-									<span class="job-num">5 Position</span>
-								</div>
-							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">

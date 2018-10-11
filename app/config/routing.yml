@@ -4,3 +4,6 @@ homepage:
 page2:
     path:     /test
     defaults: { _controller: AppBundle:Default:indexs }
+jobCategory:
+    path:     /joblisting/{type}
+    defaults: { _controller: AppBundle:listing:category }
