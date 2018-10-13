@@ -1,11 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Job Market - Recruitment - Job Search - Employment - Job Vacancies  {% endblock %}
-{% block stylesheets %}
-	<link rel="stylesheet" href="css/plugins.css">
-	<link href="css/style.css" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" id="jssDefault" href="css/green-style.css">
-
-{% endblock %}
+{% block stylesheets %}{% endblock %}
 {% block body %}
 		<div class="Loader"></div>
 		<div class="wrapper">
@@ -100,7 +95,7 @@
 					<div class="all-features">
 
 						<div class="col-md-3 col-sm-6 small-padding">
-							<a href="{{ path('jobCategory', {'type': 'sss'}) }}">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 								<div class="job-feature">
 									<div class="feature-icon">
 										<i class="fa fa-desktop"></i>
@@ -114,6 +109,7 @@
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'fresher'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-mobile"></i>
@@ -123,9 +119,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-lightbulb-o"></i>
@@ -135,9 +133,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-file-text"></i>
@@ -147,9 +147,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-hdd-o"></i>
@@ -159,9 +161,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-bullhorn"></i>
@@ -171,9 +175,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-credit-card"></i>
@@ -183,9 +189,11 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'off-campus-drive'}) }}">
 							<div class="job-feature">
 								<div class="feature-icon">
 									<i class="fa fa-user"></i>
@@ -195,6 +203,7 @@
 									<span class="job-num">5 Position</span>
 								</div>
 							</div>
+							</a>
 						</div>
 
 					</div>
@@ -783,9 +792,7 @@
 		</div>
 {% endblock %}
 {% block javascripts %}
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/viewportchecker.js"></script>
-	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootsnav.js"></script>
 	<script type="text/javascript" src="js/select2.min.js"></script>
 	<script type="text/javascript" src="js/wysihtml5-0.3.0.js"></script>

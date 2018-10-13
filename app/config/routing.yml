@@ -7,3 +7,6 @@ page2:
 jobCategory:
     path:     /joblisting/{type}
     defaults: { _controller: AppBundle:listing:category }
+job_detail:
+    path:     /jobDetail/{{id}}
+    defaults: { _controller: AppBundle:detail:jobDetail }
