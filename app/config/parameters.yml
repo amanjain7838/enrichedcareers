@@ -1,6 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: ec2-52-66-207-136.ap-south-1.compute.amazonaws.com
+    database_host: 52.66.207.136
     database_port: 3306
     database_name: placement
     database_user: phpMyAdmin
