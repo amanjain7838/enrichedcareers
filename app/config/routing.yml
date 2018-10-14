@@ -10,3 +10,6 @@ jobCategory:
 job_detail:
     path:     /jobDetail/{{id}}
     defaults: { _controller: AppBundle:detail:jobDetail }
+freelancer-detail:
+    path:     /freelancer-detail/{{freelancer_id}}
+    defaults: { _controller: AppBundle:freelancer:freelancerDetail }
