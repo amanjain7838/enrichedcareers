@@ -12,5 +12,11 @@ class freelancerController extends Controller
             // ...
         ));
     }
+    public function freelancerListingAction()
+    {
+        return $this->render('freelancer/freelancer-listing.html.twig', array(
+            // ...
+        ));
+    }
 
 }

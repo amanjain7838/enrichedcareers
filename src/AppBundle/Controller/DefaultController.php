@@ -5,16 +5,23 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use AppBundle\Entity\user;
+use AppBundle\Entity\job;
+use AppBundle\Entity\company;
 
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-      // $user=new user();
-      // $user->setName('sdadad');
-      // $user->setPassword('sdadad');
+      // $user=new job();
       // $em=$this->getDoctrine()->getManager();
+      // //$company=$em->getRepository('AppBundle:company')->findAll();
+      // $company=$em->getRepository('AppBundle:company')->findOneBy(['id'=>'1']);
+      // $user->setCompanyId($company);
+      // $user->setName('sdadad');
+      // $user->setJobType(1);
+      // $user->setSalary(1000);
+      // $user->setDescription("sdasdasd");
+      // $user->setPublished(1);
       // $em->persist($user);
       // $em->flush();
 

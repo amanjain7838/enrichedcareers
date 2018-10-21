@@ -1,6 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: phpmyadmin.cozndbka8vkn.ap-south-1.rds.amazonaws.com
+    database_host: localhost
     database_port: 3306
     database_name: placement
     database_user: root
