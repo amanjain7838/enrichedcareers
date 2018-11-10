@@ -17,6 +17,14 @@ class company
    * @ORM\Column(type="string")
    */
     private $name;
+    /**
+   * @ORM\Column(type="string",nullable=true)
+   */
+    private $sdetail;
+    /**
+   * @ORM\Column(type="string",nullable=true)
+   */
+    private $ldetail;
 
     public function getId()
     {
@@ -32,5 +40,13 @@ class company
     {
         $this->name=$name;
     }
+    public function getSdetail()
+    {
+        return $this->sdetail;
+    }
 
+    public function setSdetail($sdetail)
+    {
+        $this->sdetail=$sdetail;
+    }
 }

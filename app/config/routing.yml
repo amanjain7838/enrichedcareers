@@ -1,22 +1,7 @@
-acme_server:
-    resource: "@AcmeServerBundle/Resources/config/routing.yml"
+client:
+    resource: "@AcmeClientBundle/Resources/config/routing.yml"
     prefix:   /
 
-homepage:
-    path:     /
-    defaults: { _controller: AppBundle:Default:index }
-page2:
-    path:     /test
-    defaults: { _controller: AppBundle:Default:indexs }
-jobCategory:
-    path:     /joblisting/{type}
-    defaults: { _controller: AppBundle:listing:category }
-job_detail:
-    path:     /jobDetail/{{id}}
-    defaults: { _controller: AppBundle:detail:jobDetail }
-freelancer-detail:
-    path:     /freelancer-detail/{{freelancer_id}}
-    defaults: { _controller: AppBundle:freelancer:freelancerDetail }
-freelancer-listing:
-    path:     /freelancer-listing
-    defaults: { _controller: AppBundle:freelancer:freelancerListing }
+acme_server:
+    resource: "@AcmeServerBundle/Resources/config/routing.yml"
+    prefix:   /server

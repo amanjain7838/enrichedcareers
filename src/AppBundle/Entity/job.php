@@ -18,15 +18,15 @@ class job
    */
     private $name;
     /**
-   * @ORM\Column(type="integer")
+   * @ORM\Column(type="integer",options={"comment":"1-Fulltime,2-Parttime"})
    */
     private $jobType;
     /**
-     * @ORM\ManyToOne(targetEntity="Company")
+     * @ORM\ManyToOne(targetEntity="company")
     */
-    private $companyId;
+    private $company;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $salary;
     /**
@@ -34,9 +34,17 @@ class job
      */
     private $description;
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $address;
+    /**
    * @ORM\Column(type="integer")
    */
     private $published;
+    /**
+     * @ORM\ManyToOne(targetEntity="job_category")
+    */
+    private $job_category;
 
     public function getId()
     {
@@ -93,6 +101,15 @@ class job
         $this->description=$description;
     }
 
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    public function setAddress($address)
+    {
+        $this->address=$address;
+    }
     public function getPublished()
     {
         return $this->published;
@@ -101,6 +118,15 @@ class job
     public function setPublished($published)
     {
         $this->published=$published;
+    }
+    public function getJobCategory()
+    {
+        return $this->jobCategory;
+    }
+
+    public function setJobCategory(JobCategory $jobCategory)
+    {
+        $this->jobCategory=$jobCategory;
     }
 
 }

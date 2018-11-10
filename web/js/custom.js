@@ -151,3 +151,30 @@ All custom js files contents are below
     csselem();
 
 	})(jQuery);
+	var page=1;
+$(window).scroll(function() {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+        if(page!=-1)
+		{
+			$(".loadingcontent").show();
+			$.ajax({
+		      url:  "/indexcontent",
+		      type: "POST",
+		      data: {page:page++},
+		      success: function(data, textStatus, jqXHR)
+		       {
+		       	$(".loadingcontent").hide();
+		           $(".dynamic_content").append(data);
+		       	if(!$.trim(data))
+		       		{page=-1;}
+		       },
+		       error: function(data, textStatus, jqXHR)
+		       {
+		       	$(".loadingcontent").hide();
+			    page=-1;
+		       	console.log("no more content")
+		       }
+			});
+		}
+    }
+});
