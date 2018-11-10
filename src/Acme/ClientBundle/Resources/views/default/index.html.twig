@@ -1,0 +1,665 @@
+{% extends '@AcmeClient/base.html.twig' %}
+{% block title %}Job Market - Recruitment - Job Search - Employment - Job Vacancies  {% endblock %}
+{% block stylesheets %}
+<style type="text/css">
+.loader {
+	    position: inherit;
+    left: 32%;
+    right: 50%;
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>{% endblock %}
+{% block body %}
+		<div class="Loader"></div>
+		<div class="wrapper">
+			<!-- Start Navigation -->
+			{% include '@AcmeClient/header.html.twig' %}
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+
+			<!-- Main Banner Section Start -->
+			<section class="slide-banner scroll-con-sec hero-section" data-scrollax-parent="true" id="sec1">
+				<div class="containeritem">
+					<!-- slideshow-item -->
+					<div class="item">
+						<div class="bg containeritembg"  data-bg="img/banner-3.jpg"></div>
+					</div>
+					<!--  slideshow-item end  -->
+				</div>
+				<div class="overlay"></div>
+				<div class="hero-section-wrap fl-wrap">
+					<div class="container">
+						<div class="intro-item fl-wrap">
+							<div class="caption text-center cl-white">
+								<h2>Discover 7412+ Jobs Here</h2>
+								<p>Expolore top rated tours, hotels and restaurants around the world</p>
+							</div>
+
+							<form class="form-horizontal">
+								<div class="col-md-4 no-padd hidden-xs">
+									 <div class="input-group">
+										 <input id="advname" type="text" class="form-control br-1" placeholder="Skills, Designations, Companies">
+									 </div>
+								</div>
+								<div class="col-md-3 no-padd hidden-xs">
+									 <div class="input-group">
+										 <input id="advaddress" type="text" class="form-control br-1" placeholder="Search By Location..">
+									 </div>
+								</div>
+
+								<div class="col-md-3 no-padd hidden-xs">
+									 <div class="input-group">
+										<select id="advcategory" class=" form-control" >
+													<option value="all">All Categories</option>
+											  		<option value="Off-Campus-Drive">OFF CAMPUS DRIVE</option>
+													<option value="fresher">FRESHER</option>
+													<option value="Creative-Designer">CREATIVE DESIGNER</option>
+													<option value="Content-Writer">CONTENT WRITER</option>
+													<option value="Manager">MANAGER</option>
+													<option value="Accountant">ACCOUNTANT</option>
+										</select>
+									 </div>
+								</div>
+								<div class="col-xs-12 hidden-sm hidden-lg hidden-md">
+									<div class="input-group">
+										<div class="col-xs-4 mdsearch">
+											<input type="text" class="form-control br-1" placeholder="Skills" style="height: 43px;">
+										</div>
+										<div class="col-xs-4 mdsearch">
+										<input type="text" class="form-control br-1" placeholder="Location" style="height: 43px;">
+										</div>
+										<div class="col-xs-4 mdsearch">
+										<select id="advcategory" class="form-control" style="height: 43px;">
+												<option value="all">All Categories</option>
+										  		<option value="Off-Campus-Drive">OFF CAMPUS DRIVE</option>
+												<option value="fresher">FRESHER</option>
+												<option value="Creative-Designer">CREATIVE DESIGNER</option>
+												<option value="Content-Writer">CONTENT WRITER</option>
+												<option value="Manager">MANAGER</option>
+												<option value="Accountant">ACCOUNTANT</option>
+										</select>
+									</div>
+
+								 </div>
+								</div>
+								<div class="col-md-2 no-padd">
+									<div class="input-group">
+										<a class="btn btn-success full-width" onclick="advancesearch()">Search Job</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Main Banner Section End -->
+			<div class="clearfix"></div>
+
+
+			<!-- Top Features Section Start-->
+			<section class="first-feature" style="padding-top:5px;">
+				<div class="container">
+						<h3 style="color:#5a6f7c;">Featured Job Category</h3>
+					<div class="all-features">
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Off-Campus-Drive'}) }}">
+								<div class="job-feature">
+									<div class="feature-icon">
+										<i class="fa fa-desktop"></i>
+									</div>
+									<div class="feature-caption">
+										<h5>Off Campus Drive</h5><br>
+										<span class="job-num">5 Position</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'fresher'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-mobile"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Fresher</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Creative-Designer'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-lightbulb-o"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Creative Designer</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Content-Writer'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-file-text"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Content Writer</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Manager'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-hdd-o"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Manager</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Sales-&-Marketing'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-bullhorn"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Sales & Marketing</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Accountant'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-credit-card"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Accountant</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+						<div class="col-md-3 col-sm-6 small-padding">
+							<a href="{{ path('jobCategory', {'type': 'Management-/-HR'}) }}">
+							<div class="job-feature">
+								<div class="feature-icon">
+									<i class="fa fa-user"></i>
+								</div>
+								<div class="feature-caption">
+									<h5>Management / HR</h5><br>
+									<span class="job-num">5 Position</span>
+								</div>
+							</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- Top Features Section End-->
+
+			<!-- Premium Candidate Start -->
+<section class="brows-job-category"  style="padding-top:5px;">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<h2>We found some latest jobs that might be interesting for you</h2>
+									</div>
+								</div>
+								<!--/.row-->
+
+								<div class="row">
+									<div class="col-md-12 dynamic_content">
+
+										<!-- Single Job List -->
+										{% for value in result.data.joblisting %}
+										<div class="item-click">
+											<article>
+												<div class="brows-job-list">
+													<div class="col-md-1 col-sm-2 small-padding">
+														<div class="brows-job-company-img">
+															<a href="job-detail.html"><img src="img/com-{{value.cmp_id}}.jpg" class="img-responsive" alt="" /></a>
+														</div>
+													</div>
+
+													<div class="col-md-6 col-sm-5">
+														<div class="brows-job-position">
+															<a href="{{ path('job_detail', {'id': value.id}) }}"><h3>{{value.jobname}}</h3></a>
+															<p>
+																<span>{{value.cmp_name}}</span><span class="brows-job-sallery"><i class="fa fa-money"></i>{{value.salary}}</span>
+																<span class="job-type cl-success bg-trans-success">{{value.jobType}}</span>
+															</p>
+														</div>
+													</div>
+
+													<div class="col-md-3 col-sm-3">
+														<div class="brows-job-location">
+															<p><i class="fa fa-map-marker"></i>{{value.address}}</p>
+														</div>
+													</div>
+
+													<div class="col-md-2 col-sm-2">
+														<div class="brows-job-link">
+															<a href="{{ path('job_detail', {'id': value.id}) }}" class="btn btn-default">Apply Job</a>
+														</div>
+													</div>
+
+												</div>
+											</article>
+										</div>
+										{%endfor%}
+										
+										<div class="loader loadingcontent" style="display: none;"></div>
+									</div>
+								</div>
+								{#
+								<div class="row text-center divpagination">
+									<ul class="pagination">
+										<li><a href="{{ path('jobCategory', {'type': 'all','page': 1}) }}">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="{{ path('jobCategory', {'type': 'all','page': 1}) }}">2</a></li>
+										<li><a href="{{ path('jobCategory', {'type': 'all','page': 1}) }}">3</a></li>
+										<li><a href="{{ path('jobCategory', {'type': 'all','page': 1}) }}">4</a></li>
+										<li><a href="{{ path('jobCategory', {'type': 'all','page': 1}) }}">&raquo;</a></li>
+									</ul>
+								</div>
+								#}
+							</div>
+						</section>
+
+
+			<!-- Premium Candidate End -->
+
+			<!-- Work Process Counter Section Start -->
+
+
+			<!-- start Call To Action section -->
+			<!-- Call To Action section End -->
+
+			<!-- ========== Begin: Brows job Category ===============  -->
+			{#
+				<section class="gray-bg">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="main-heading">
+								<p>EXPERT FREELANCER</p>
+								<h2>Hire Expert <span>Freelancer</span></h2>
+							</div>
+						</div>
+					</div>
+					<!--/row-->
+
+					<!-- Paid Candidate Start -->
+					<div class="row">
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-1.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>Daniel Disroyer</h4>
+											<span class="desination">App Designer</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-2.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>Agustin L. Smith</h4>
+											<span class="desination">App Designer</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-3.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>Delores R. Williams</h4>
+											<span class="desination">Software Developer</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-4.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>Nancy D. Walker</h4>
+											<span class="desination">PHP Developer</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+								<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-5.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>Larry A. Sherrod</h4>
+											<span class="desination">Data Analytics</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single paid-candidater -->
+						<div class="col-md-4 col-sm-6">
+							<div class="paid-candidate-container">
+								<div class="paid-candidate-box">
+									<h4 class="flc-rate">$17/hr</h4>
+									<div class="paid-candidate-inner--box">
+										<div class="paid-candidate-box-thumb">
+											<img src="img/client-1.jpg" class="img-responsive img-circle" alt="" />
+										</div>
+										<div class="paid-candidate-box-detail">
+											<h4>George M. Johnson</h4>
+											<span class="desination">Project Manager</span>
+										</div>
+									</div>
+									<div class="paid-candidate-box-extra">
+										<ul>
+											<li>Php</li>
+											<li>Android</li>
+											<li>Html</li>
+											<li class="more-skill bg-primary">+3</li>
+										</ul>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui.</p>
+									</div>
+								</div>
+								<a href="{{ path('freelancer-detail', {'freelancer_id': '32'}) }}" class="btn btn-paid-candidate bt-1">View Detail</a>
+							</div>
+						</div>
+
+						<!-- Single Freelancer -->
+						<div class="col-md-12 col-sm-12">
+							<div class="pull-right">
+								<a href="{{ path('freelancer-listing') }}" class="btn btn-primary">Load More</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				</section>
+			#}
+			<!-- ========== Begin: Brows job Category End ===============  -->
+
+			<!-- Download app Section Start -->
+		{#	<div class="clearfix"></div>
+			<section class="download-app" style="background-image:url(img/banner-10.jpg);">
+				<div class="container">
+					<div class="col-md-5 col-sm-5 hidden-xs">
+						<img src="img/iphone.png" alt="iphone" class="img-responsive" />
+					</div>
+					<div class="col-md-7 col-sm-7">
+						<div class="app-content">
+							<h2>Download Our Best Apps</h2>
+							<h4>Best oppertunity in your hand</h4>
+							<p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci. Curabitur blandit, diam ut ornare ultricies.</p>
+							<a href="#" class="btn call-btn"><i class="fa fa-apple"></i>Download</a>
+							<a href="#" class="btn call-btn"><i class="fa fa-android"></i>Download</a>
+						</div>
+					</div>
+					<!--/row-->
+				</div>
+			</section>
+			<div class="clearfix"></div>#}
+			<!-- Download app Section End -->
+
+			<!-- Footer Section Start -->
+			{% include '@AcmeClient/footer.html.twig' %}
+			<div class="clearfix"></div>
+			<!-- Footer Section End -->
+
+			<!-- Sign Up Window Code -->
+			<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="tab" role="tabpanel">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#login" role="tab" data-toggle="tab">Sign In</a></li>
+								<li role="presentation"><a href="#register" role="tab" data-toggle="tab">Sign Up</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content" id="myModalLabel2">
+								<div role="tabpanel" class="tab-pane fade in active" id="login">
+									<img src="img/logo.png" class="img-responsive" alt="" />
+									<div class="subscribe wow fadeInUp">
+										<form class="form-inline" method="post">
+											<div class="col-sm-12">
+												<div class="form-group">
+													<input type="email"  name="email" class="form-control" placeholder="Username" required="">
+													<input type="password" name="password" class="form-control"  placeholder="Password" required="">
+													<div class="center">
+													<button type="submit" id="login-btn" class="submit-btn"> Login </button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<div role="tabpanel" class="tab-pane fade" id="register">
+								<img src="img/logo.png" class="img-responsive" alt="" />
+									<form class="form-inline" method="post">
+											<div class="col-sm-12">
+												<div class="form-group">
+													<input type="text"  name="email" class="form-control" placeholder="Your Name" required="">
+													<input type="email"  name="email" class="form-control" placeholder="Your Email" required="">
+													<input type="email"  name="email" class="form-control" placeholder="Username" required="">
+													<input type="password" name="password" class="form-control"  placeholder="Password" required="">
+													<div class="center">
+													<button type="submit" id="subscribe" class="submit-btn"> Create Account </button>
+													</div>
+												</div>
+											</div>
+										</form>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+				</div>
+			</div>
+			<!-- End Sign Up Window -->
+						<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="rightMenu">
+				<button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+				<ul id="styleOptions" title="switch styling">
+					<li>
+						<a href="javascript: void(0)" class="cl-box blue" data-theme="colors/blue-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box red" data-theme="colors/red-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box purple" data-theme="colors/purple-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box green" data-theme="colors/green-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box dark-red" data-theme="colors/dark-red-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box orange" data-theme="colors/orange-style"></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box sea-blue" data-theme="colors/sea-blue-style "></a>
+					</li>
+					<li>
+						<a href="javascript: void(0)" class="cl-box pink" data-theme="colors/pink-style"></a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Scripts
+			================================================== -->
+
+		</div>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="js/viewportchecker.js"></script>
+	<script type="text/javascript" src="js/bootsnav.js"></script>
+	<script type="text/javascript" src="js/select2.min.js"></script>
+	<script type="text/javascript" src="js/wysihtml5-0.3.0.js"></script>
+	<script type="text/javascript" src="js/bootstrap-wysihtml5.js"></script>
+	<script type="text/javascript" src="js/datedropper.min.js"></script>
+	<script type="text/javascript" src="js/dropzone.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script type="text/javascript" src="js/gmap3.min.js"></script>
+
+	<!-- Custom Js -->
+	<script src="js/custom.js"></script>
+	<script src="js/jQuery.style.switcher.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#styleOptions').styleSwitcher();
+		});
+	</script>
+	<script>
+		function closeRightMenu() {
+			document.getElementById("rightMenu").style.display = "none";
+		}
+		
+		function advancesearch() {
+			var advcategory=$("#advcategory").val();
+			var url=window.location.origin+"/joblisting/"+advcategory;
+			var advaddress=$("#advaddress").val().trim();
+			var advname=$("#advname").val().trim();
+			if(advaddress!=''||advname!='')
+				url+="?searchcondition=true";
+			if(advaddress!='')
+				url+="&j_address="+advaddress;
+			if(advname!='')
+				url+="&cmp_name="+advname;
+			
+			window.location=url;
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends '@AcmeClient/base.html.twig' %}
+{% block title %}Job Market - Recruitment - Job Search - Employment - Job Vacancies  {% endblock %}
+{% block body %}
+		<div class="Loader"></div>
+		<div class="wrapper">
+		{% include '@AcmeClient/header.html.twig' %}
+		<div class="clearfix"></div>
+		<section class="inner-header-title" style="background-image:url(/img/banner-10.jpg);">
+				<div class="container">
+					<h1>{{result.result.data.0.jobname}}</h1>
+				</div>
+			</section>
+		<section class="detail-desc">
+							<div class="container white-shadow">
+
+								<div class="row">
+
+									<div class="detail-pic">
+										<img src="/img/com-2.jpg" class="img" alt="">
+									</div>
+
+									<div class="detail-status">
+										<span>{%if result.result.data.0.postedOn.date is defined%}{{result.result.data.0.postedOn.date|date('d-m-Y')}}{%endif%}</span>
+									</div>
+
+								</div>
+
+								<div class="row bottom-mrg">
+									<div class="col-md-8 col-sm-8">
+										<div class="detail-desc-caption">
+											<h4>{{result.result.data.0.cmp_name}}</h4>
+											<span class="designation">{{result.result.data.0.sdetail}}</span>
+											<p>{{result.result.data.0.ldetail}}</p>
+											<ul>
+												<li><i class="fa fa-briefcase"></i><span>{{result.result.data.0.jobType}}</span></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="col-md-4 col-sm-4">
+										<div class="get-touch">
+											<h4>Quick insight</h4>
+											<ul>
+												{%if result.result.data.0.address is not null%}<li><i class="fa fa-map-marker"></i><span>{{result.result.data.0.address}}</span></li>{%endif%}
+												<li><i class="fa fa-money"></i><span>{{result.result.data.0.salary}}</span></li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row no-padd">
+									<div class="detail pannel-footer">
+										<div class="col-md-5 col-sm-5">
+											{#<ul class="detail-footer-social">
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+												<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+											</ul>#}
+										</div>
+
+										<div class="col-md-7 col-sm-7">
+											<div class="detail-pannel-footer-btn pull-right">
+												{%if result.result.data.0.applylink is not null%}<a href="{{result.result.data.0.applylink}}" class="footer-btn grn-btn" title="">Quick Apply</a>{%endif%}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+			<div class="clearfix"></div>
+		<section class="full-detail-description full-detail">
+					<div class="container">
+						<div class="row row-bottom">
+							<h2 class="detail-title">Job Responsibilities</h2>
+							<p>{{result.result.data.0.responsibility}}</p>
+						</div>
+
+						<div class="row row-bottom">
+							<h2 class="detail-title">Skill Requirement</h2>
+							<p>{{result.result.data.0.requirement}}</p>
+						</div>
+
+						<div class="row row-bottom">
+							<h2 class="detail-title">Qualification</h2>
+							<p>{{result.result.data.0.qualification}}</p>
+							</div>
+
+					</div>
+					</section>
+		{% include '@AcmeClient/footer.html.twig' %}
+		<div class="clearfix"></div>
+		</div>
+{% endblock %}

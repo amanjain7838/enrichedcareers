@@ -1,0 +1,15 @@
+acme_server_homepage:
+    path:     /
+    defaults: { _controller: AcmeServerBundle:Default:index }
+acme_server_joblistinghome:
+    path: /joblistinghome
+    defaults: {_controller: AcmeServerBundle:Default:joblistinghome }
+acme_server_joblisting:
+    path: /joblisting
+    defaults: {_controller: AcmeServerBundle:Default:joblistingtype }
+acme_server_jobdetail:
+    path: /jobdetail
+    defaults: {_controller: AcmeServerBundle:Default:jobdetail }
+acme_server_dynamicjobload:
+    path: /dynamicjoblistinghome
+    defaults: {_controller: AcmeServerBundle:Default:dynamicjoblistinghome }

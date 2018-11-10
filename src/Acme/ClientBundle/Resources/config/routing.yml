@@ -1,0 +1,21 @@
+homepage:
+    path:     /
+    defaults: { _controller: AcmeClientBundle:Default:index }
+page2:
+    path:     /test
+    defaults: { _controller: AcmeClientBundle:Default:indexs }
+jobCategory:
+    path:     /joblisting/{type}
+    defaults: { _controller: AcmeClientBundle:listing:category }
+job_detail:
+    path:     /jobDetail/{{id}}
+    defaults: { _controller: AcmeClientBundle:detail:jobDetail }
+freelancer-detail:
+    path:     /freelancer-detail/{{freelancer_id}}
+    defaults: { _controller: AcmeClientBundle:freelancer:freelancerDetail }
+freelancer-listing:
+    path:     /freelancer-listing
+    defaults: { _controller: AcmeClientBundle:freelancer:freelancerListing }
+indexcontent:
+    path:     /indexcontent
+    defaults: { _controller: AcmeClientBundle:Ajax:indexcontent }

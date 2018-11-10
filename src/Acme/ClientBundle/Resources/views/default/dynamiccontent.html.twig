@@ -1,0 +1,36 @@
+										{% for value in result.data.joblisting %}
+										<div class="item-click">
+											<article>
+												<div class="brows-job-list">
+													<div class="col-md-1 col-sm-2 small-padding">
+														<div class="brows-job-company-img">
+															<a href="job-detail.html"><img src="img/com-{{value.cmp_id}}.jpg" class="img-responsive" alt="" /></a>
+														</div>
+													</div>
+
+													<div class="col-md-6 col-sm-5">
+														<div class="brows-job-position">
+															<a href="job-detail.html"><h3>{{value.jobname}}</h3></a>
+															<p>
+																<span>{{value.cmp_name}}</span><span class="brows-job-sallery"><i class="fa fa-money"></i>{{value.salary}}</span>
+																<span class="job-type cl-success bg-trans-success">{{value.jobType}}</span>
+															</p>
+														</div>
+													</div>
+
+													<div class="col-md-3 col-sm-3">
+														<div class="brows-job-location">
+															<p><i class="fa fa-map-marker"></i>{{value.address}}</p>
+														</div>
+													</div>
+
+													<div class="col-md-2 col-sm-2">
+														<div class="brows-job-link">
+															<a href="{{ path('job_detail', {'id': value.id}) }}" class="btn btn-default">Apply Job</a>
+														</div>
+													</div>
+
+												</div>
+											</article>
+										</div>
+										{%endfor%}

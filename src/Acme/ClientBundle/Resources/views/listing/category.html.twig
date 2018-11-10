@@ -1,0 +1,109 @@
+{% extends '@AcmeClient/base.html.twig' %}
+{% block title %}Job Market - Recruitment - Job Search - Employment - Job Vacancies  {% endblock %}
+{% block body %}
+		<div class="Loader"></div>
+		<div class="wrapper">
+			{% include '@AcmeClient/header.html.twig' %}
+			<section class="brows-job-category">
+							<div class="container">
+								<!-- Company Searrch Filter Start -->
+										<h3 style="color:#5a6f7c;">Featured Job Category</h3><br>
+								<div class="row extra-mrg">
+									<div class="wrap-search-filter">
+											<div class="col-md-4 col-sm-4">
+												<input id="advname" type="text" class="form-control" placeholder="Keyword: Company Name">
+											</div>
+											<div class="col-md-3 col-sm-3">
+												<input id="advaddress" type="text" class="form-control" placeholder="Location: City, State, Zip">
+											</div>
+											<div class="col-md-3 col-sm-3">
+												<select id="advcategory" class=" form-control" >
+													<option value="all">All Categories</option>
+											  		<option value="Off-Campus-Drive">OFF CAMPUS DRIVE</option>
+													<option value="fresher">FRESHER</option>
+													<option value="Creative-Designer">CREATIVE DESIGNER</option>
+													<option value="Content-Writer">CONTENT WRITER</option>
+													<option value="Manager">MANAGER</option>
+													<option value="Accountant">ACCOUNTANT</option>
+												</select>
+
+											</div>
+											<div class="col-md-2 col-sm-2">
+												<a onclick="advancesearch()" class="btn btn-primary">Filter</a>
+											</div>
+									</div>
+								</div>
+								<!-- Company Searrch Filter End -->
+								{%if result.result.data.joblisting is not empty%}
+								{% for value in result.result.data.joblisting %}
+								<div class="item-click">
+									<article>
+										<div class="brows-job-list">
+											<div class="col-md-1 col-sm-2 small-padding">
+												<div class="brows-job-company-img">
+													<a href="{{ path('job_detail', {'id': value.id}) }}"><img src="/img/com-{{value.cmp_id}}.jpg" class="img-responsive" alt=""></a>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-5">
+												<div class="brows-job-position">
+													<a href="job-apply-detail.html"><h3>{{value.jobname}}</h3></a>
+													<p>
+														<span>{{value.cmp_name}}</span><span class="brows-job-sallery"><i class="fa fa-money"></i>{{value.salary}}</span>
+														<span class="job-type cl-success bg-trans-success">{{value.jobType}}</span>
+													</p>
+												</div>
+											</div>
+											<div class="col-md-3 col-sm-3">
+												<div class="brows-job-location">
+													<p><i class="fa fa-map-marker"></i>{{value.address}}</p>
+												</div>
+											</div>
+											<div class="col-md-2 col-sm-2">
+												<div class="brows-job-link">
+													<a href="{{ path('job_detail', {'id': value.id}) }}" class="btn btn-default">Apply Now</a>
+												</div>
+											</div>
+										</div>
+										<span class="tg-themetag tg-featuretag">Premium</span>
+									</article>
+								</div>
+								{%endfor%}
+								{%else%}
+									No Job found.
+								{%endif%}
+								<!--/.row-->
+								{%if result.result.data.stats.totalpagecount>0%}
+								{%set totalcount=result.result.data.stats.totalpagecount%}
+								<div class="row">
+									<ul class="pagination">
+										<li><a {%if page!=1%}href="{{ path('jobCategory', {'type': type,'page': page-1}) }}"{%endif%}>«</a></li>
+										{%for key,val in range(1,totalcount)%}
+										<li {%if page==val%} class="active" {%endif%}><a {%if page!=val%} href="{{ path('jobCategory', {'type': type,'page': val}) }}" {%endif%}>{{val}}</a></li>
+										{%endfor%}
+										<li><a {%if result.result.data.stats.totalpagecount!=page%}href="{{ path('jobCategory', {'type': type,'page': page+1}) }}"{%endif%}>»</a></li>
+									</ul>
+								</div>
+								{%endif%}
+							</div>
+						</section>
+
+		{% include '@AcmeClient/footer.html.twig' %}
+		<div class="clearfix"></div>
+		</div>
+<script type="text/javascript">
+	function advancesearch() {
+		var advcategory=$("#advcategory").val();
+		var url=window.location.origin+"/joblisting/"+advcategory;
+		var advaddress=$("#advaddress").val().trim();
+		var advname=$("#advname").val().trim();
+		if(advaddress!=''||advname!='')
+			url+="?searchcondition=true";
+		if(advaddress!='')
+			url+="&j_address="+advaddress;
+		if(advname!='')
+			url+="&cmp_name="+advname;
+		
+		window.location=url;
+	}
+</script>
+{% endblock %}
