@@ -1,4 +1,4 @@
 placementsite
 =============
 
-A Symfony project created on October 2, 2018, 8:34 pm.
+A symfony project created for job search. Backend is handled using doctrine and frontent is handled using symfony.
